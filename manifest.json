@@ -1,0 +1,14 @@
+{
+    "name": "SaltyBot",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Logs SaltyBet W/L",
+    "browser_action": {
+        "name": "Manipulaet DOM",
+        "icons": []
+    },
+    "content_scripts": [ {
+        "js": [ "jquery.min.js", "jquery-watch.min.js", "sbot.js" ],
+        "matches": [ "http://www.saltybet.com/*" ]
+    } ]
+}
