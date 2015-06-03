@@ -7,6 +7,9 @@
         "name": "Manipulate DOM",
         "icons": []
     },
+    "permissions": [
+        "http://sbot.seansspace.com/*"
+    ],
     "content_scripts": [ {
         "js": [ "jquery.min.js", "jquery-watch.min.js", "sbot.js" ],
         "matches": [ "http://www.saltybet.com/*" ]

@@ -1,6 +1,8 @@
 $('.footercenter').append( "<span style='color: #FFF'>SBOT!</span>" );
 var player1 = null;
 var player2 = null;
+var p1 = null;
+var p2 = null;
 
 $('#betstatus').watch( {
     properties: "prop_innerHTML",
@@ -8,8 +10,8 @@ $('#betstatus').watch( {
         console.log( data.vals[i] );
         var text = data.vals[i];
         if( text == "Bets are OPEN!" ) {
-            var p1 = $('#player1').val();
-            var p2 = $('#player2').val();
+            p1 = $('#player1').val();
+            p2 = $('#player2').val();
             console.log( { player1: p1, player2: p2 } );
         }
         else if( text.indexOf( "Team Red" ) > 0 ) {
@@ -23,7 +25,14 @@ $('#betstatus').watch( {
 
 function postMatch( p1, p2, winner ) {
     //Make sure that the players were scraped before sending data to the server
-    if( p1.length > 1 && p2.length> 2 ) {
-        console.log( 'Player ' + winner + ' Wins!' );
+    console.log( { p1: p1, p2: p2, winner: winner } );
+    if( p1 != null && p2 != null ) {
+        console.log( 'Firing Ajax Call!' );
+        $.ajax( {
+            url: 'http://sbot.seansspace.com/match/new/' + p1 + '/' + p2 + '/' + winner,
+            error: function( xhr, status, error ) {
+                console.error( { error: error, status: status } );
+            }
+        } );
     }
 }
