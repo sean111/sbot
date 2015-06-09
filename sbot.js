@@ -1,4 +1,6 @@
-$('.footercenter').append( "<span style='color: #FFF'>SBOT!</span>" );
+$( '.footercenter' ).append( "<span style='color: #FFF'>SBOT!</span>" );
+$( '#chat-wrapper' ).html( '' );
+$( '#video-embed' ).html( '' );
 var player1 = null;
 var player2 = null;
 var p1 = null;
