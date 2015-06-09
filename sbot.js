@@ -29,7 +29,7 @@ function postMatch( p1, p2, winner ) {
     if( p1 != null && p2 != null ) {
         console.log( 'Firing Ajax Call!' );
         $.ajax( {
-            url: 'http://sbot.seansspace.com/match/new/' + p1 + '/' + p2 + '/' + winner,
+            url: 'http://sbot.seansspace.com/match/new/' + encodeURIComponent(p1) + '/' + encodeURIComponent(p2) + '/' + winner,
             error: function( xhr, status, error ) {
                 console.error( { error: error, status: status } );
             }
